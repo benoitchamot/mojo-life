@@ -1,3 +1,5 @@
+import random
+
 @value
 struct Grid(StringableRaising):
     var rows: Int
@@ -51,11 +53,11 @@ struct Grid(StringableRaising):
 
         data = List[List[Int]]()
 
-        for row in range(rows):
+        for _ in range(rows):
             row_data = List[Int]()  # Same as row_data = []
-            for col in range(cols):
+            for _ in range(cols):
                 # Generate a random 0 or 1
-                row_data.append(Int(random.random.si64(0, 1)))
+                row_data.append(Int(random.random_si64(0, 1)))
             data.append(row_data)
 
         return Self(rows, cols, data)
