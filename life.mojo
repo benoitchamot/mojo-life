@@ -1,9 +1,16 @@
-fn grid_str(rows: Int, cols: Int, grid: List[List[Int]]) -> String:
+from grid import Grid
+
+
+fn grid_str(current_grid: Grid) -> String:
     """
     Generate a string representation of the game grid.
     """
 
     str = String()
+
+    rows = current_grid.rows
+    cols = current_grid.cols
+    grid = current_grid.data
 
     for row in range(rows):
         for col in range(cols):
@@ -19,9 +26,6 @@ fn grid_str(rows: Int, cols: Int, grid: List[List[Int]]) -> String:
 
 
 def main():
-    num_rows: Int = 8
-    num_cols: Int = 8
-
     # Initial state of the glider pattern
     glider = [
         [0, 1, 0, 0, 0, 0, 0, 0],
@@ -34,5 +38,6 @@ def main():
         [0, 0, 0, 0, 0, 0, 0, 0],
     ]
 
-    result = grid_str(num_rows, num_cols, glider)
+    start = Grid(8, 8, glider)
+    result = grid_str(start)
     print(result)
